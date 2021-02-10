@@ -1,7 +1,7 @@
 <?php
 require "Address.php";
 require "Company.php";
-include "phpqrcode/qrlib.php"
+//include "phpqrcode/qrlib.php";
 
 class User
 {
@@ -9,7 +9,7 @@ class User
     private string $name;
     private string $username;
     private string $email;
-    public Address $adress;
+    private Address $adress;
     private string $phone;
     private string $website;
     private Company $company;

@@ -1,8 +1,7 @@
 <?php
 include "classes/User.php";
 
-$user = new User();
-$user->setEmail("user@email.com");
+$user = new User("https://jsonplaceholder.typicode.com/users/1");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +10,6 @@ $user->setEmail("user@email.com");
     <title>Title</title>
 </head>
 <body>
-
+    <?= '' ?>
 </body>
 </html>

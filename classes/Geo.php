@@ -3,6 +3,12 @@
 
 class Geo
 {
-    public $lat;
-    public $lng;
+    private string $lat;
+    private string $lng;
+
+    public function __construct(string $lat, string $lng)
+    {
+        $this->lat = $lat;
+        $this->lng = $lng;
+    }
 }
