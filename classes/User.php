@@ -1,18 +1,27 @@
 <?php
 require "Address.php";
 require "Company.php";
-//include "phpqrcode/qrlib.php";
 
+session_start();
 class User
 {
     private int $id;
     private string $name;
     private string $username;
     private string $email;
-    private Address $adress;
+    private Address $address;
     private string $phone;
     private string $website;
     private Company $company;
+
+
+    public function __construct(string $jsonUrl)
+    {
+        $json = file_get_contents($jsonUrl);
+        $jsonData = json_decode($json, true);
+
+        $this->setPropertiesFromJson($jsonData);
+    }
 
     public function setPropertiesFromJson($jsonData)
     {
@@ -42,14 +51,6 @@ class User
         );
     }
 
-    public function __construct(string $jsonUrl)
-    {
-        $json = file_get_contents($jsonUrl);
-        $jsonData = json_decode($json, true);
-
-        $this->setPropertiesFromJson($jsonData);
-    }
-
     public function getDomain()
     {
         $domain = substr(strrchr($this->email, "@"), 1);
@@ -58,6 +59,9 @@ class User
 
     public function getPersonData()
     {
-
+        $array = get_object_vars($this);
+        $json = json_encode($array);
+        $_SESSION["json"] = $json;
+        echo '<img src="qrcode.php" />';
     }
 }
