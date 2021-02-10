@@ -9,6 +9,10 @@
     <title>Zadanie </title>
 </head>
 <body>
-    <?php $user->getPersonData() ?>
+    <?php
+        $user->getDomain();
+        echo '<br>';
+        $user->getPersonData();
+    ?>
 </body>
 </html>

@@ -54,7 +54,7 @@ class User
     public function getDomain()
     {
         $domain = substr(strrchr($this->email, "@"), 1);
-        return $domain;
+        echo $domain;
     }
 
     public function getPersonData()
