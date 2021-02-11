@@ -15,10 +15,12 @@
             echo $domain.'<br>';
         }
         $user->getPersonData();
+        
         $dbName = "domains";
         $tableName = "Domeny";
         $user->createDatabase($dbName);
         $user->createTable($dbName ,$tableName);
+        $user->insertDomainsToDb($dbName ,$tableName);
     ?>
 </body>
 </html>

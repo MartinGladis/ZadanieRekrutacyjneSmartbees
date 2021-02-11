@@ -48,9 +48,10 @@ class User
         $db->createTable($tableName);
     }
 
-    public function insertDomainToDb($dbName)
+    public function insertDomainsToDb($dbName, $tableName)
     {
         $domains = $this->getDomains();
         $db = new DbConnect($dbName);
+        $db->insertDomainsToDb($domains, $dbName, $tableName);
     }
 }
