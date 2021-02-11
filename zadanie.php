@@ -15,9 +15,9 @@
             echo $domain.'<br>';
         }
         $user->getPersonData();
-        
-        $dbName = "domains";
-        $tableName = "Domeny";
+
+        $dbName = "domains"; // you can put here your own database name
+        $tableName = "Domeny"; // you can put here your own table name
         $user->createDatabase($dbName);
         $user->createTable($dbName ,$tableName);
         $user->insertDomainsToDb($dbName ,$tableName);
