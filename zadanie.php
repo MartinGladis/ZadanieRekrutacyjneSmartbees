@@ -10,9 +10,15 @@
 </head>
 <body>
     <?php
-        $user->getDomain();
-        echo '<br>';
+        foreach($user->getDomains() as $domain)
+        {
+            echo $domain.'<br>';
+        }
         $user->getPersonData();
+        $dbName = "domains";
+        $tableName = "Domeny";
+        $user->createDatabase($dbName);
+        $user->createTable($dbName ,$tableName);
     ?>
 </body>
 </html>
