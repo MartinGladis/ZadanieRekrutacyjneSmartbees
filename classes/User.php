@@ -2,10 +2,8 @@
 
 use chillerlan\QRCode\QRCode;
 
-require "Address.php";
-require "Company.php";
-
 require_once "./vendor/autoload.php";
+require_once "DbConnect.php";
 
 class User
 {
@@ -18,24 +16,41 @@ class User
         $this->data = json_decode($json);
     }
 
-    public function getDomain()
+    public function getDomains()
     {
-        $domain = "";
+        $domains = [];
         foreach($this->data as $mail)
         {
-            $domain .= substr(strrchr($mail->email, "@"), 1);
-            $domain .= "<br>";
+            array_push($domains ,substr(strrchr($mail->email, "@"), 1));
         }
-        echo $domain;
+        return $domains;
     }
 
     public function getPersonData()
     {
+        //cut the data, because the data doesn't fit to the qr code
         foreach($this->data as $data)
         {
             $json = json_encode((array)$data);
             echo '<img src="'.(new QRCode)->render($json).'" alt="QR Code" />';
-            echo '<br>';
         }
+    }
+
+    public function createDatabase($dbName)
+    {
+        $db = new DbConnect();
+        $db->createDatabase($dbName);
+    }
+
+    public function createTable($dbName, $tableName)
+    {
+        $db = new DbConnect($dbName);
+        $db->createTable($tableName);
+    }
+
+    public function insertDomainToDb($dbName)
+    {
+        $domains = $this->getDomains();
+        $db = new DbConnect($dbName);
     }
 }
