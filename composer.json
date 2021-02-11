@@ -1,0 +1,13 @@
+{
+    "name": "gladis/zadanie_rekrutacyjne_smartbees",
+    "description": "Zadanie rekrutacyjne do Smartbees",
+    "authors": [
+        {
+            "name": "MartinGladis",
+            "email": "martin.gladis@outlook.com"
+        }
+    ],
+    "require": {
+        "chillerlan/php-qrcode": "^4.3"
+    }
+}

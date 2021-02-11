@@ -1,6 +1,6 @@
 <?php
-    include "classes/User.php";
-    $user = new User("https://jsonplaceholder.typicode.com/users/1");
+    require_once "classes/User.php";
+    $user = new User("https://jsonplaceholder.typicode.com/users");
 ?>
 <!DOCTYPE html>
 <html lang="en">
